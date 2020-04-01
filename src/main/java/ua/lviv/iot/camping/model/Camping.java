@@ -17,5 +17,8 @@ public class Camping extends AbstractCamping {
     public void setAvailabilityOfTent(boolean isAvailabilityOfTent) {
         this.isAvailabilityOfTent = isAvailabilityOfTent;
     }
-
+    public String getHeaders() { return super.getHeaders() + "," +
+            "isAvailabilityOfTent"; }
+            
+    public String toCSV() { return super.toCSV() + "," + isAvailabilityOfTent()+"\n"; }
 }

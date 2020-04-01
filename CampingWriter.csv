@@ -1,0 +1,5 @@
+name, producer,priceInUAH,weightInKilo,thingsType
+backpack,CityStyle,550.0,2.5,HIKING
+flashlight,Dynamo,80.0,1.5,HIKING
+tent,Caravan,1500.0,5.3,SECONDARY_NECESSITY
+aidkit,UHL-MASH,250.0,3.1,FIRSTLY_NECESSITY

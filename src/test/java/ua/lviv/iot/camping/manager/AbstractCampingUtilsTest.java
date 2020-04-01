@@ -27,7 +27,7 @@ public class AbstractCampingUtilsTest extends BaseAbstractCampingTest {
 
     @Test
     public void testSortThingsByWeightInKilo() {
-        CampingManagerUtils.SortByWeightInKilo(things, SortType.ASCENDING);
+        CampingManagerUtils.sortByWeightInKilo(things, SortType.ASCENDING);
         assertEquals(1.5, things.get(0).getWeightInKilo());
         assertEquals(2.5, things.get(1).getWeightInKilo());
         assertEquals(3.1, things.get(2).getWeightInKilo());

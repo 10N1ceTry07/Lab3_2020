@@ -17,4 +17,8 @@ public class Boating extends AbstractCamping {
     public void setAvailabilityOfBoat(boolean isAvailabilityOfBoat) {
         this.isAvailabilityOfBoat = isAvailabilityOfBoat;
     }
+    public String getHeaders() { return super.getHeaders() + "," +
+            "isAvailabilityOfBoat"; }
+            
+    public String toCSV() { return super.toCSV() + "," + isAvailabilityOfBoat()+"\n"; }
 }

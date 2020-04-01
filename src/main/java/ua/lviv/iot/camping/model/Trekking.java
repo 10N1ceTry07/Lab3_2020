@@ -17,4 +17,9 @@ public class Trekking extends AbstractCamping {
     public void setAvailabilityOfTrekkingPoles(boolean isAvailabilityOfTrekkingPoles) {
         this.isAvailabilityOfTrekkingPoles = isAvailabilityOfTrekkingPoles;
     }
+    
+    public String getHeaders() { return super.getHeaders() + "," +
+            "isAvailabilityOfTrekkingPoles"; }
+            
+    public String toCSV() { return super.toCSV() + "," + isAvailabilityOfTrekkingPoles()+"\n"; }
 }
