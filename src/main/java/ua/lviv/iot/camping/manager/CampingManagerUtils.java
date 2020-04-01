@@ -36,13 +36,19 @@ public class CampingManagerUtils {
     private static final ThingsByWeightInKilo THINGS_SORTER_BY_WEIGHT_IN_KILO = new ThingsByWeightInKilo();
 
     // sort using static inner class
-    public static void SortByWeightInKilo(List<AbstractCamping> things, SortType sortType) {
+    public static void sortByWeightInKilo(List<AbstractCamping> things, SortType sortType) {
         things.sort(sortType == SortType.ASCENDING ? THINGS_SORTER_BY_WEIGHT_IN_KILO
                 : THINGS_SORTER_BY_WEIGHT_IN_KILO.reversed());
     }
 
     // inner class
-    class SortThingsByPriceInUAH implements Comparator<AbstractCamping> {
+     static class SortThingsByPriceInUAH implements Comparator<AbstractCamping>,Serializable {
+        
+        /**
+         * 
+         */
+        private static final long serialVersionUID = 1L;
+
         @Override
         public int compare(AbstractCamping firstThing, AbstractCamping secondThing) {
             if (Double.compare(firstThing.getPriceInUAH(), secondThing.getPriceInUAH()) < 0) {
@@ -57,8 +63,7 @@ public class CampingManagerUtils {
 
     // sort using inner class
     public static void sortByPriceInUAH(List<AbstractCamping> things, SortType sortType) {
-        CampingManagerUtils manager = new CampingManagerUtils();
-        SortThingsByPriceInUAH sortThingsByPriceInUAH = manager.new SortThingsByPriceInUAH();
+        SortThingsByPriceInUAH sortThingsByPriceInUAH = new SortThingsByPriceInUAH();
         things.sort(sortType == SortType.ASCENDING ? sortThingsByPriceInUAH : sortThingsByPriceInUAH.reversed());
     }
 

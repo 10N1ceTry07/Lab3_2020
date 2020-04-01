@@ -6,10 +6,11 @@ import ua.lviv.iot.camping.model.AbstractCamping;
 import ua.lviv.iot.camping.model.ThingsType;
 
 public class CampingManager {
-    public List<AbstractCamping> things;
+
+    private List<AbstractCamping> things;
 
     public CampingManager(List<AbstractCamping> things) {
-        this.things = things;
+        this.setThings(things);
     }
 
     public List<AbstractCamping> findThingsForHiking(ThingsType thingsType, List<AbstractCamping> things) {
@@ -25,5 +26,13 @@ public class CampingManager {
             }
         }
         return result;
+    }
+
+    public List<AbstractCamping> getThings() {
+        return things;
+    }
+
+    public void setThings(List<AbstractCamping> things) {
+        this.things = things;
     }
 }

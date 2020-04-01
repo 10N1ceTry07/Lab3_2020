@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class BaseAbstractCampingTest {
-    List<AbstractCamping> things;
+    protected List<AbstractCamping> things;
 
     @BeforeEach
     void setUp() {

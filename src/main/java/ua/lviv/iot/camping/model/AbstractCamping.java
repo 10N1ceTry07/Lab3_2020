@@ -56,4 +56,13 @@ public class AbstractCamping {
     public void setThingsType(ThingsType thingsType) {
         this.thingsType = thingsType;
     }
+    public String getHeaders() {
+        return "name" + "," + " producer" + "," + "priceInUAH" + "," + "weightInKilo" + "," + "thingsType";
+    }
+
+    public String toCSV() {
+        return getName() + "," + getProducer() + "," + getPriceInUAH() + "," + getWeightInKilo() + ","
+                + getThingsType();
+    }
+
 }
