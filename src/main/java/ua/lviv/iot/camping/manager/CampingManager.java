@@ -2,8 +2,7 @@ package ua.lviv.iot.camping.manager;
 
 import java.util.LinkedList;
 import java.util.List;
-import ua.lviv.iot.camping.model.AbstractCamping;
-import ua.lviv.iot.camping.model.ThingsType;
+import ua.lviv.iot.camping.rest.restApplication.model.*;
 
 public class CampingManager {
 

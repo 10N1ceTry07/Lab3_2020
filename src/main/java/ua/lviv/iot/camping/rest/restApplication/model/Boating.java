@@ -1,4 +1,4 @@
-package ua.lviv.iot.camping.model;
+package ua.lviv.iot.camping.rest.restApplication.model;
 
 public class Boating extends AbstractCamping {
 

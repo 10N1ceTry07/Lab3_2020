@@ -3,9 +3,10 @@ package ua.lviv.iot.camping.manager;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import ua.lviv.iot.camping.model.AbstractCamping;
-import ua.lviv.iot.camping.model.ThingsType;
+
 import ua.lviv.iot.camping.manager.BaseAbstractCampingTest;
+import ua.lviv.iot.camping.rest.restApplication.model.AbstractCamping;
+import ua.lviv.iot.camping.rest.restApplication.model.ThingsType;
 
 public class AbstractCampingTest extends BaseAbstractCampingTest {
 
