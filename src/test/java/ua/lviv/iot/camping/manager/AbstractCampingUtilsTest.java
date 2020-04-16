@@ -2,7 +2,8 @@ package ua.lviv.iot.camping.manager;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import ua.lviv.iot.camping.model.*;
+
+import ua.lviv.iot.camping.rest.restApplication.model.*;
 
 public class AbstractCampingUtilsTest extends BaseAbstractCampingTest {
 
