@@ -1,5 +1,11 @@
-package ua.lviv.iot.camping.model;
+package ua.lviv.iot.camping.rest.restApplication.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class AbstractCamping {
 
     private String name;
@@ -7,14 +13,30 @@ public class AbstractCamping {
     private double priceInUAH;
     private double weightInKilo;
     private ThingsType thingsType;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Integer id;
 
-    public AbstractCamping(String name, String producer, double priceInUAH, double weightInKilo, ThingsType thingsType) {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public AbstractCamping(String name, String producer, double priceInUAH, double weightInKilo,
+            ThingsType thingsType) {
         super();
         this.name = name;
         this.producer = producer;
         this.priceInUAH = priceInUAH;
         this.weightInKilo = weightInKilo;
         this.thingsType = thingsType;
+    }
+
+    public AbstractCamping() {
+
     }
 
     public String getName() {
@@ -56,6 +78,7 @@ public class AbstractCamping {
     public void setThingsType(ThingsType thingsType) {
         this.thingsType = thingsType;
     }
+
     public String getHeaders() {
         return "name" + "," + " producer" + "," + "priceInUAH" + "," + "weightInKilo" + "," + "thingsType";
     }

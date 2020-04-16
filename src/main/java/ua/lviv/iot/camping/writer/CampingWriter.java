@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.List;
-import ua.lviv.iot.camping.model.*;
+
+import ua.lviv.iot.camping.rest.restApplication.model.*;
 
 public class CampingWriter {
     

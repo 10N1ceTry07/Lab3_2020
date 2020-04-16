@@ -3,8 +3,9 @@ package ua.lviv.iot.camping.manager;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
-import ua.lviv.iot.camping.model.AbstractCamping;
-import ua.lviv.iot.camping.model.SortType;
+
+import ua.lviv.iot.camping.rest.restApplication.model.AbstractCamping;
+import ua.lviv.iot.camping.rest.restApplication.model.SortType;
 
 public class CampingManagerUtils {
 
