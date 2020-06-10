@@ -5,6 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+
+
+
 @Entity
 public class AbstractCamping {
 
@@ -16,14 +22,10 @@ public class AbstractCamping {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer id;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "campingmagazine_id")
+    @JsonIgnoreProperties("abstractcampings")
+    private CampingMagazine campingMagazine;
 
     public AbstractCamping(String name, String producer, double priceInUAH, double weightInKilo,
             ThingsType thingsType) {
@@ -70,6 +72,14 @@ public class AbstractCamping {
     public void setWeightInKilo(double weightInKilo) {
         this.weightInKilo = weightInKilo;
     }
+    
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public ThingsType getThingsType() {
         return thingsType;
@@ -77,6 +87,14 @@ public class AbstractCamping {
 
     public void setThingsType(ThingsType thingsType) {
         this.thingsType = thingsType;
+    }
+    
+    public CampingMagazine getCampingMagazine() {
+        return campingMagazine;
+    }
+
+    public void setCampingMagazine(CampingMagazine campingMagazine) {
+        this.campingMagazine = campingMagazine;
     }
 
     public String getHeaders() {

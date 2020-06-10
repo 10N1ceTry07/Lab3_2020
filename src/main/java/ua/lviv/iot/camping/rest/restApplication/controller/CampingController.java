@@ -1,7 +1,6 @@
 package ua.lviv.iot.camping.rest.restApplication.controller;
 
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -31,16 +30,15 @@ public class CampingController {
     static private AtomicInteger idCounter = new AtomicInteger();
     @Autowired
     private CampingService campingService;
-
+    
     @GetMapping
-    public List<AbstractCamping> getAbstractCampings() {
-
-        return new LinkedList<AbstractCamping>(abstractCampings.values());
+    public List<AbstractCamping> getCampings() {
+        return campingService.findAll();
     }
 
     @GetMapping(path = "/{id}")
-    public AbstractCamping getAbstractCamping(final @PathVariable("id") Integer abstractCampingId) {
-        return abstractCampings.get(abstractCampingId);
+    public ResponseEntity<AbstractCamping> getCamping(final @PathVariable("id") Integer abstractCampingId) {
+        return campingService.findById(abstractCampingId);
     }
 
     @PostMapping(produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -52,24 +50,16 @@ public class CampingController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<AbstractCamping> deleteAbstractCamping(@PathVariable("id") Integer abstractCampingId) {
-        HttpStatus status = abstractCampings.remove(abstractCampingId) == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
-        campingService.deleteCamping(abstractCampingId);
+    public ResponseEntity<AbstractCamping> deleteById(@PathVariable("id") Integer abstractCampingId) {
+        HttpStatus status = campingService.deleteById(abstractCampingId);
         return ResponseEntity.status(status).build();
     }
 
     @PutMapping(path = "/{id}")
     public ResponseEntity<AbstractCamping> updateAbstractCamping(final @PathVariable("id") Integer abstractCampingId,
             final @RequestBody AbstractCamping abstractCamping) {
-        HttpStatus status;
         abstractCamping.setId(abstractCampingId);
-        if (abstractCampings.containsKey(abstractCampingId)) {
-            abstractCampings.put(abstractCampingId, abstractCamping);
-            status = HttpStatus.OK;
-        } else {
-            status = HttpStatus.NOT_FOUND;
-        }
-        campingService.updateCamping(abstractCampingId, abstractCamping);
-        return ResponseEntity.status(status).build();
+        return campingService.updateById(abstractCampingId, abstractCamping);
+
     }
 }
